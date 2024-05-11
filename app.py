@@ -3,8 +3,8 @@ import asyncio
 from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, StateFilter
-from handlers import start_handler, member_handler, shortlist_handler, prose_handler, poetry_handler, fio_handler
-from states import MemberState, NominationState
+from handlers import start_handler, member_handler, shortlist_handler, prose_handler, poetry_handler, fio_handler, project_handler
+from states import MemberState, NominationState, FioState
 
 load_dotenv()
 
@@ -22,6 +22,7 @@ async def main():
         MemberState.member, MemberState.shortlist), F.text == "Проза")
     dp.message.register(fio_handler, StateFilter(
         NominationState.prose, NominationState.poetry), F.text)
+    dp.message.register(project_handler, StateFilter(FioState.fio), F.text)
 
     await dp.start_polling(bot)
 
