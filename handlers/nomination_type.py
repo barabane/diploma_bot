@@ -6,10 +6,10 @@ from states import NominationState
 async def prose_handler(msg: types.Message, state: FSMContext):
     await state.set_state(NominationState.prose)
     await state.update_data({"nomination": "prose"})
-    await msg.answer("Введите ваши фамилию и имя:")
+    await msg.answer("Введите ваши фамилию и имя(в дательном падеже. Например: Сидорову Ивану):")
 
 
 async def poetry_handler(msg: types.Message, state: FSMContext):
     await state.set_state(NominationState.poetry)
     await state.update_data({"nomination": "poetry"})
-    await msg.answer("Введите ваши фамилию и имя:")
+    await msg.answer("Введите ваши фамилию и имя(в дательном падеже. Например: Сидорову Ивану):")
