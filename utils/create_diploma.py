@@ -4,10 +4,10 @@ from PIL import Image, ImageDraw, ImageFont
 
 
 def create_diploma(filepath: str, user_data):
-    fio_text = ImageFont.truetype("arial.ttf", 48)
-    date_text = ImageFont.truetype("arial.ttf", 28)
-    project_text = ImageFont.truetype("arial.ttf", 28)
-    year_text = ImageFont.truetype("arial.ttf", 56)
+    fio_text = ImageFont.truetype(font="static/arial.ttf", size=48)
+    date_text = ImageFont.truetype(font="static/arial.ttf", size=28)
+    project_text = ImageFont.truetype(font="static/arial.ttf", size=28)
+    year_text = ImageFont.truetype(font="static/arial.ttf", size=56)
 
     image = Image.open(filepath)
     drawer = ImageDraw.Draw(image)
