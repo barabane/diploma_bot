@@ -18,7 +18,7 @@ def create_diploma(filepath: str, user_data):
                 font=date_text, fill="#3B181D")
     drawer.text((700, 500), user_data["project"], anchor="mm",
                 font=project_text, fill="#3B181D")
-    drawer.text((905, 145), str(datetime.now().year), anchor="mm",
+    drawer.text((905, 145), str(datetime.now().year - 1), anchor="mm",
                 font=year_text, fill="#3B181D")
 
     diploma_name = f"{randint(5, 1000)}.png"
