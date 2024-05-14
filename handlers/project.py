@@ -6,7 +6,7 @@ from keyboards import category_kb
 
 
 async def project_handler(msg: types.Message, state: FSMContext):
-    await state.update_data({"project": msg.text.lower().capitalize()})
+    await state.update_data({"project": msg.text})
     user_data = await state.get_data()
 
     if user_data["member"] == "member" and user_data["nomination"] == "prose":
