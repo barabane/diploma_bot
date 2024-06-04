@@ -3,6 +3,7 @@ from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, StateFilter
 from handlers import start_handler, member_handler, shortlist_handler, prose_handler, poetry_handler, fio_handler, project_handler
 from states import MemberState, NominationState, FioState
+from middlewares.auth_middleware import AuthMiddleware
 from settings import settings
 
 bot = Bot(token=settings.TOKEN)
@@ -20,6 +21,8 @@ async def main():
     dp.message.register(fio_handler, StateFilter(
         NominationState.prose, NominationState.poetry), F.text)
     dp.message.register(project_handler, StateFilter(FioState.fio), F.text)
+
+    dp.message.middleware(AuthMiddleware())
 
     await dp.start_polling(bot)
 
