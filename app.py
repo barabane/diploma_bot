@@ -1,14 +1,11 @@
-import os
 import asyncio
-from dotenv import load_dotenv
 from aiogram import Bot, Dispatcher, F
 from aiogram.filters import CommandStart, StateFilter
 from handlers import start_handler, member_handler, shortlist_handler, prose_handler, poetry_handler, fio_handler, project_handler
 from states import MemberState, NominationState, FioState
+from settings import settings
 
-load_dotenv()
-
-bot = Bot(token=os.getenv("TOKEN"))
+bot = Bot(token=settings.TOKEN)
 
 
 async def main():
