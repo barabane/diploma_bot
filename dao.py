@@ -1,3 +1,4 @@
+from sqlalchemy import select
 from database.db_config import async_session_maker
 from database.models import User
 
@@ -6,7 +7,7 @@ class UserDAO():
     @classmethod
     async def user_exists(cls, id: int):
         async with async_session_maker() as session:
-            return await session.get(User, id)
+            return await session.execute(select(User).where(User.id == id))
 
     @classmethod
     async def reg_user(cls, user):

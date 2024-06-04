@@ -10,6 +10,7 @@ class AuthMiddleware(BaseMiddleware):
         event: types.Message,
         data: Dict[str, Any]
     ) -> Any:
+        print("IN", await UserDAO.user_exists(event.from_user.id))
         if not await UserDAO.user_exists(event.from_user.id):
             await UserDAO.reg_user(event.from_user)
         return await handler(event, data)
