@@ -22,7 +22,7 @@ async def main():
         NominationState.prose, NominationState.poetry), F.text)
     dp.message.register(project_handler, StateFilter(FioState.fio), F.text)
 
-    dp.message.middleware(AuthMiddleware())
+    # dp.message.middleware(AuthMiddleware())
 
     await dp.start_polling(bot)
 
